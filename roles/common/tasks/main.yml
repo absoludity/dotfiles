@@ -18,6 +18,7 @@
     - { src: 'vimrc.before', dest: '/home/{{ username }}/.vimrc.before' }
     - { src: 'vimrc.local', dest: '/home/{{ username }}/.vimrc.local' }
     - { src: 'vimrc.bundles', dest: '/home/{{ username }}/.vimrc.bundles' }
+  become: true
 
 - name: Render dotfile templates
   template:
@@ -25,11 +26,23 @@
     dest: /home/{{ username }}/.gitconfig
     owner: "{{ username }}"
     mode: 0644
+  become: true
 
 - name: Install Vundle
   git:
     repo: https://github.com/VundleVim/Vundle.vim.git
     dest: /home/{{ username }}/.vim/bundle/Vundle.vim
+  become: true
+
+- name: Ensure ownership for Vundle bundles directory
+  file:
+    dest: /home/{{ username }}/.vim/bundle
+    owner: "{{ username }}"
+    group: "{{ username }}"
+    mode: 0775
+  become: true
 
 - name: Install Vundle plugins
   command: vim +PluginInstall +qall
+  become: true
+  become_user: "{{ username }}"
