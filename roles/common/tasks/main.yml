@@ -1,0 +1,32 @@
+- name: Install development packages
+  apt:
+    name: ack-grep,bzr,git,landscape-client,byobu
+    state: present
+  become: true
+
+- name: Copy dotfiles into place
+  copy:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+    owner: "{{ username }}"
+    group: "{{ username }}"
+    mode: 0644
+  with_items:
+    - { src: 'bash_aliases', dest: '/home/{{ username }}/.bash_aliases' }
+    - { src: 'bashrc', dest: '/home/{{ username }}/.bashrc' }
+    - { src: 'vimrc.spf13', dest: '/home/{{ username }}/.vimrc' }
+    - { src: 'vimrc.before', dest: '/home/{{ username }}/.vimrc.before' }
+    - { src: 'vimrc.local', dest: '/home/{{ username }}/.vimrc.local' }
+    - { src: 'vimrc.bundles', dest: '/home/{{ username }}/.vimrc.bundles' }
+
+- name: Render dotfile templates
+  template:
+    src: gitconfig.jinja2
+
+- name: Install Vundle
+  git:
+    repo: https://github.com/VundleVim/Vundle.vim.git
+    dest: /home/{{ username }}/.vim/bundle/Vundle.vim
+
+- name: Install Vundle plugins
+  command: vim +PluginInstall +qall

@@ -1,0 +1,23 @@
+# Personal aliases
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
+
+if [ -d "$HOME/bin" ] ; then
+    PATH="$HOME/bin:$PATH"
+    export PATH
+fi
+
+if [ -d "$HOME/golang" ] ; then
+    GOPATH="$HOME/golang"
+    export GOPATH
+    PATH="$GOPATH/bin:$PATH"
+    export PATH
+fi
+
+if [ -d "$HOME/.cargo/bin" ] ; then
+    PATH="$PATH:$HOME/.cargo/bin"
+    export PATH
+fi
+
+set -o vi

@@ -1,0 +1,4 @@
+- name: Install desktop specific packages
+  apt:
+    name: unity-tweak-tool,gnome-tweak-tool,python3-novaclient
+    state: present

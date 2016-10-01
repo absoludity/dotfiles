@@ -1,0 +1,8 @@
+---
+- hosts:
+    - dev_xenial
+  vars_files:
+    - dev_instance_vars.yml
+  roles:
+    - dev_instance
+    - common

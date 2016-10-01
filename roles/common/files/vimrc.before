@@ -1,0 +1,2 @@
+" Let spf13 know we're handling bundles ourselves.
+let g:spf13_bundle_groups=[]

@@ -1,0 +1,21 @@
+- name: Install cloud-development specific packages
+  apt:
+    name: mosh
+    state: present
+  become: yes
+
+- name: Create ssh key for Launchpad access
+  user:
+    name: "{{ username }}"
+    generate_ssh_key: yes
+    ssh_key_file: .ssh/id_rsa_lp
+    ssh_key_comment: Dev LP Access
+
+- name: Create ssh key for github access
+  user:
+    name: "{{ username }}"
+    generate_ssh_key: yes
+    ssh_key_file: .ssh/id_rsa_gh
+    ssh_key_comment: Dev GH Access
+
+- debug: msg="SSH keys created for LP and GH access. Add passphrases."

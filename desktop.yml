@@ -1,0 +1,7 @@
+---
+- hosts: localhost
+  vars_files:
+    - local_vars.yml
+  roles:
+    - common
+    - desktop

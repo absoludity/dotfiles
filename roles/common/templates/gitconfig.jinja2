@@ -1,0 +1,14 @@
+[user]
+    name = {{ git_user_name }}
+    email = {{ git_user_email }}
+[alias]
+    co = checkout
+    last = log -n 10 --first-parent --oneline
+    revert = "checkout -- "
+    uncommit = reset --soft HEAD^
+    filetrail = log --follow -p -w
+    files = log --pretty='format:%h - %ad' --name-status --relative-date
+    fixup = commit --all --amend --reuse-message=HEAD
+    graph = log --all --graph --pretty --oneline --decorate
+    unstage = reset HEAD --
+
