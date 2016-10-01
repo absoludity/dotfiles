@@ -22,6 +22,9 @@
 - name: Render dotfile templates
   template:
     src: gitconfig.jinja2
+    dest: /home/{{ username }}/.gitconfig
+    owner: "{{ username }}"
+    mode: 0644
 
 - name: Install Vundle
   git:
