@@ -1,8 +1,16 @@
 - name: Install development packages
   apt:
-    name: ack-grep,bzr,git,landscape-client,byobu
+    name: ack-grep,byobu,bzr,git,landscape-client,lxd,virtualenv,zfsutils-linux
     state: present
   become: true
+
+- name: Create required directories
+  file:
+    path: '/home/{{ username }}/.bazaar/plugins'
+    state: directory
+    owner: '{{ username }}'
+    group: '{{ username }}'
+    recurse: yes
 
 - name: Copy dotfiles into place
   copy:
@@ -22,10 +30,15 @@
 
 - name: Render dotfile templates
   template:
-    src: gitconfig.jinja2
-    dest: /home/{{ username }}/.gitconfig
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
     owner: "{{ username }}"
+    group: "{{ username }}"
     mode: 0644
+  with_items:
+    - { src: 'gitconfig.jinja2', dest: '/home/{{ username }}/.gitconfig' }
+    - { src: 'bzrconfig.jinja2', dest: '/home/{{ username }}/.bazaar/bazaar.conf' }
+    - { src: 'bzrauthconfig.jinja2', dest: '/home/{{ username }}/.bazaar/authentication.conf' }
   become: true
 
 - name: Install Vundle

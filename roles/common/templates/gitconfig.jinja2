@@ -1,6 +1,10 @@
 [user]
     name = {{ git_user_name }}
     email = {{ git_user_email }}
+
+[url "git+ssh://{{ launchpad_username }}@git.launchpad.net/"]
+        insteadOf = lp:
+
 [alias]
     co = checkout
     last = log -n 10 --first-parent --oneline
