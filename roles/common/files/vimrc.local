@@ -1,2 +1,9 @@
 " Personal shortcuts
+" Save awkward escape to exit edit mode.
 :imap uu <Esc>
+" Save hitting shift to do most commands.
+nmap ; :
+
+" Rust-specific commands.
+nmap <leader>rr :RustRun<CR>
+nmap <leader>rf :RustFmt<CR>
