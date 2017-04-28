@@ -4,6 +4,12 @@
 " Save hitting shift to do most commands.
 nmap ; :
 
+" Leader-n to toggle nerd tree
+nmap <leader>n :NERDTreeToggle<CR>
+
+" Easy access to fugitive's git status.
+nmap <leader>s :Gstatus<CR>
+
 " Rust-specific commands.
 nmap <leader>rr :RustRun<CR>
 nmap <leader>rf :RustFmt<CR>

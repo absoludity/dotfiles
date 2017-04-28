@@ -1,6 +1,9 @@
 # Dvorak friendly ls
 alias a="ls -l"
 alias aa="ls -la"
+# Dvorak friendly git status and diff.
+alias o="git status"
+alias e="git diff"
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
