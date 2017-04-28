@@ -1,6 +1,6 @@
 - name: Install development packages
   apt:
-    name: ack-grep,byobu,bzr,git,landscape-client,lxd,virtualenv,zfsutils-linux
+    name: ack-grep,byobu,bzr,git,lxd,virtualenv,zfsutils-linux
     state: present
   become: true
 
@@ -22,6 +22,8 @@
   with_items:
     - { src: 'bash_aliases', dest: '/home/{{ username }}/.bash_aliases' }
     - { src: 'bashrc', dest: '/home/{{ username }}/.bashrc' }
+    - { src: 'bash_git', dest: '/home/{{ username }}/.bash_git' }
+    - { src: 'bash_git_ps1', dest: '/home/{{ username }}/.bash_git_ps1' }
     - { src: 'vimrc.spf13', dest: '/home/{{ username }}/.vimrc' }
     - { src: 'vimrc.before', dest: '/home/{{ username }}/.vimrc.before' }
     - { src: 'vimrc.local', dest: '/home/{{ username }}/.vimrc.local' }
