@@ -10,6 +10,14 @@ nmap <leader>n :NERDTreeToggle<CR>
 " Easy access to fugitive's git status.
 nmap <leader>s :Gstatus<CR>
 
+" Use neocomplete.
+let g:neocomplete#enable_at_startup = 1
+" Use smartcase.
+let g:neocomplete#enable_smart_case = 1
+" Set minimum syntax keyword length.
+let g:neocomplete#sources#syntax#min_keyword_length = 3
+
+
 " Rust-specific commands.
 nmap <leader>rr :RustRun<CR>
 nmap <leader>rf :RustFmt<CR>
