@@ -1,6 +1,6 @@
 - name: Install development packages
   apt:
-    name: ack-grep,byobu,bzr,git,virtualenv,vim-nox,docker
+    name: ack-grep,byobu,bzr,git,virtualenv,vim-nox,golang-1.8,docker.io
     state: present
   become: true
 
