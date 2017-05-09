@@ -1,16 +1,8 @@
 - name: Install development packages
   apt:
-    name: ack-grep,byobu,bzr,git,virtualenv,vim-nox,golang-1.8,docker.io
+    name: byobu,git,virtualenv,vim-nox
     state: present
   become: true
-
-- name: Create required directories
-  file:
-    path: '/home/{{ username }}/.bazaar/plugins'
-    state: directory
-    owner: '{{ username }}'
-    group: '{{ username }}'
-    recurse: yes
 
 - name: Copy dotfiles into place
   copy:
@@ -39,8 +31,6 @@
     mode: 0644
   with_items:
     - { src: 'gitconfig.jinja2', dest: '/home/{{ username }}/.gitconfig' }
-    - { src: 'bzrconfig.jinja2', dest: '/home/{{ username }}/.bazaar/bazaar.conf' }
-    - { src: 'bzrauthconfig.jinja2', dest: '/home/{{ username }}/.bazaar/authentication.conf' }
   become: true
 
 - name: Install Vundle

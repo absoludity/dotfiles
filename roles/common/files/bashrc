@@ -23,6 +23,4 @@ if [ -d "$HOME/.cargo/bin" ] ; then
     export PATH
 fi
 
-[[ -d "/usr/lib/go-1.8" ]] && export PATH="$PATH:/usr/lib/go-1.8/bin"
-
 set -o vi
