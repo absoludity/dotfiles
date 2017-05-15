@@ -7,6 +7,9 @@ nmap ; :
 " Leader-n to toggle nerd tree
 nmap <leader>n :NERDTreeToggle<CR>
 
+" Leader l to toggle open file list
+nmap <leader>l :ls<CR>
+
 " Easy access to fugitive's git status.
 nmap <leader>s :Gstatus<CR>
 
