@@ -5,7 +5,9 @@
 nmap ; :
 
 " Leader-n to toggle nerd tree
-nmap <leader>n :NERDTreeToggle<CR>
+nmap <leader>. :NERDTreeFind<CR>
+" Leave nerdtree open when opening a file
+let NERDTreeQuitOnOpen = 0
 
 " Leader l to toggle open file list
 nmap <leader>l :ls<CR>
@@ -23,8 +25,6 @@ let g:neocomplete#sources#syntax#min_keyword_length = 3
 " Current colortheme
 colorscheme murphy
 
-" Leave nerdtree open when opening a file
-let NERDTreeQuitOnOpen = 0
 
 " Rust-specific commands.
 nmap <leader>rr :RustRun<CR>

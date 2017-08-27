@@ -1,2 +1,6 @@
 " Let spf13 know we're handling bundles ourselves.
 let g:spf13_bundle_groups=[]
+
+" Don't use <leader>s namespace for (unused) application of spf13 config.
+" (just choose something I'd never use with Dvorak due to comfort.
+let g:spf13_apply_config_mapping='<leader>qq'
