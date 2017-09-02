@@ -1,6 +1,6 @@
 ---
 - hosts:
-    - dev_xenial
+    - localhost
   vars_files:
     - dev_instance_vars.yml
   roles:

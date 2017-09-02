@@ -1,9 +1,0 @@
----
-- hosts:
-    - dev_trusty_ubuntu
-  vars_files:
-    - dev_instance_old_vars.yml
-  gather_facts: no
-  roles:
-    - dev_instance
-    - common
