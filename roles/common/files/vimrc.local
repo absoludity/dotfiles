@@ -5,7 +5,7 @@
 nmap ; :
 
 " Leader-n to toggle nerd tree
-nmap <leader>. :NERDTreeFind<CR>
+nmap <leader>t :NERDTreeFind<CR>
 " Leave nerdtree open when opening a file
 let NERDTreeQuitOnOpen = 0
 
