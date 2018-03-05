@@ -23,4 +23,8 @@ if [ -d "$HOME/.cargo/bin" ] ; then
     export PATH
 fi
 
+export MOZ_USE_XINPUT2=1
+
 set -o vi
+EDITOR=vi
+export EDITOR

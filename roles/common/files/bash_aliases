@@ -4,6 +4,8 @@ alias aa="ls -la"
 # Dvorak friendly git status and diff.
 alias o="git status"
 alias e="git diff"
+alias k="kubectl"
+alias dc="docker-compose"
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
