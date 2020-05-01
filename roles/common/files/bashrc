@@ -23,7 +23,10 @@ if [ -d "$HOME/.cargo/bin" ] ; then
     export PATH
 fi
 
-export MOZ_USE_XINPUT2=1
+if [ -d "$HOME/.local/bin" ] ; then
+    PATH="$PATH:$HOME/.local/bin"
+    export PATH
+fi
 
 set -o vi
 EDITOR=vi
