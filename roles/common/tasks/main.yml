@@ -14,6 +14,7 @@
   with_items:
     - { src: 'bash_aliases', dest: '/home/{{ username }}/.bash_aliases' }
     - { src: 'bashrc', dest: '/home/{{ username }}/.bashrc' }
+    - { src: 'zshrc', dest: '/home/{{ username }}/.zshrc' }
     - { src: 'bash_git', dest: '/home/{{ username }}/.bash_git' }
     - { src: 'bash_git_ps1', dest: '/home/{{ username }}/.bash_git_ps1' }
     - { src: 'vimrc.spf13', dest: '/home/{{ username }}/.vimrc' }
