@@ -1,0 +1,44 @@
+{
+    "telemetry.enableTelemetry": false,
+    "breadcrumbs.enabled": true,
+    "keyboard.dispatch": "keyCode",
+    "vim.leader": ",",
+    "vim.insertModeKeyBindings": [
+        {
+            "before": ["u", "u"],
+            "after": ["<Esc>"]
+        }
+    ],
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": [";"],
+            "commands": [
+                "workbench.action.showCommands",
+            ]
+        },
+        {
+            "before": ["z", "z"],
+            "commands": [
+                ":q"
+            ]
+        },
+        // TODO: make ", t" also work in keybindings, but *only* when sidebar has focus.
+        {
+            "before": ["leader", "t"],
+            "commands": ["workbench.action.toggleSidebarVisibility"],
+        },
+        {
+            "before": ["leader", "s"],
+            "commands": ["workbench.action.files.save"],
+        },
+        {
+            "before": ["leader", "b"],
+            "commands": ["workbench.action.terminal.focus"]
+        }
+    ],
+    "go.useLanguageServer": true,
+    "window.zoomLevel": -1,
+    "terminal.integrated.rendererType": "dom",
+    "editor.renderWhitespace": "selection",
+    "workbench.colorTheme": "Visual Studio Light"
+}
