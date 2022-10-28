@@ -2,9 +2,9 @@ Reusable setup of development cloud instances via Ansible
 
 cat /etc/ansible/hosts
 [dev_instances]
-dev_xenial
+dev_focal
 
-Set the local vars or dev_instances_vars.yml with username, git_user_name and git_user_emal
+Set the local vars or dev_instances_vars.yml with username, git_user_name and git_user_email
 
 ```
 username: yourusername
@@ -13,4 +13,4 @@ git_user_email: gituseremail@example.com
 launchpad_username: lp.user.name
 ```
 
-$ ansible-playbook dev_instances.yml
+$ ansible-playbook dev_instances.yml (or desktop.yaml)

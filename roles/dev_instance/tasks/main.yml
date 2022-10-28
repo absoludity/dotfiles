@@ -6,4 +6,4 @@
     ssh_key_comment: Dev GH Access
   become: yes
 
-- debug: msg="SSH keys created for LP and GH access. Add passphrases."
+- debug: msg="SSH keys created for GH access. Add passphrases."

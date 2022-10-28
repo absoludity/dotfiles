@@ -1,6 +1,6 @@
 - name: Install development packages
   apt:
-    name: byobu,git,virtualenv,vim-nox
+    name: byobu,git,vim-nox
     state: present
   become: true
 
@@ -22,6 +22,7 @@
     - { src: 'vimrc.local', dest: '/home/{{ username }}/.vimrc.local' }
     - { src: 'vimrc.bundles', dest: '/home/{{ username }}/.vimrc.bundles' }
   become: true
+  become_user: "{{ username }}"
 
 - name: Render dotfile templates
   template:
@@ -33,22 +34,23 @@
   with_items:
     - { src: 'gitconfig.jinja2', dest: '/home/{{ username }}/.gitconfig' }
   become: true
+  become_user: "{{ username }}"
 
 - name: Install Vundle
   git:
     repo: https://github.com/VundleVim/Vundle.vim.git
     dest: /home/{{ username }}/.vim/bundle/Vundle.vim
   become: true
-
-- name: Ensure ownership for Vundle bundles directory
-  file:
-    dest: /home/{{ username }}/.vim/bundle
-    owner: "{{ username }}"
-    group: "{{ username }}"
-    mode: 0775
-  become: true
+  become_user: "{{ username }}"
 
 - name: Install Vundle plugins
   command: vim +PluginInstall +qall
+  become: true
+  become_user: "{{ username }}"
+
+- name: Install zsh-vi-mode plugin
+  git:
+    repo: https://github.com/jeffreytse/zsh-vi-mode
+    dest: /home/{{ username }}/.oh-my-zsh/custom/plugins/zsh-vi-mode
   become: true
   become_user: "{{ username }}"

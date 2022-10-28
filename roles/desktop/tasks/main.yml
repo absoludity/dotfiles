@@ -2,6 +2,7 @@
   apt:
     name: gnome-tweak-tool
     state: present
+  become: true
 
 - name: Copy vscode settings into place
   copy:
@@ -13,4 +14,3 @@
   with_items:
     - { src: 'keybindings.json', dest: '/home/{{ username }}/.config/Code/User/keybindings.json' }
     - { src: 'settings.json', dest: '/home/{{ username }}/.config/Code/User/settings.json' }
-  become: true
