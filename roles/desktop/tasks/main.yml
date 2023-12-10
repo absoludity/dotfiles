@@ -1,9 +1,3 @@
-- name: Install desktop specific packages
-  apt:
-    name: gnome-tweak-tool
-    state: present
-  become: true
-
 - name: Copy vscode settings into place
   copy:
     src: "{{ item.src }}"
