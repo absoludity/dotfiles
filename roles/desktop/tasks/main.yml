@@ -8,3 +8,14 @@
   with_items:
     - { src: 'keybindings.json', dest: '/home/{{ username }}/.config/Code/User/keybindings.json' }
     - { src: 'settings.json', dest: '/home/{{ username }}/.config/Code/User/settings.json' }
+
+- name: Copy ZSA Ergodox udev rules into place
+  copy:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+    owner: root
+    group: root
+    mode: 0644
+  with_items:
+    - { src: '50-ergodox.rules', dest: '/etc/udev/rules.d/50-ergodox.rules' }
+  become: true
